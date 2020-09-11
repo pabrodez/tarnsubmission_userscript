@@ -1,0 +1,21 @@
+{
+  "name": "tarnsubmission_userscript",
+  "version": "1.0.0",
+  "description": "Made for the TARN submitter's happiness",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production --config webpack.config.js"
+  },
+  "author": "pabrodez",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "babel-loader": "^8.1.0",
+    "moment": "^2.27.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-userscript": "^2.5.6"
+  }
+}
