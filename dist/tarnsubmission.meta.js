@@ -3,6 +3,7 @@
 // @version 0.1
 // @author pabrodez
 // @description Made for the TARN submitter's happiness
+// @homepage https://github.com/pabrodez/tarnsubmission_userscript
 // @match https://www.tarn.ac.uk/SubmissionDetail.aspx?subid=*&qsid=*&ro=N&mult=N&QAsub=&ssid=&pt=sect
 // @match https://www.tarn.ac.uk/SubmissionDetail.aspx?subid=*&qsid=*&ro=N&mult=N&QAsub=&ssid=*&pt=sect
 // @match https://www.tarn.ac.uk/SubmissionDetail.aspx?subid=*&ssid=*&qsid=*&ro=N&mult=N&QAsub=&&pt=sect

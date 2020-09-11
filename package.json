@@ -2,7 +2,11 @@
   "name": "tarnsubmission_userscript",
   "version": "1.0.0",
   "description": "Made for the TARN submitter's happiness",
-  "main": "index.js",
+  "homepage": "https://github.com/pabrodez/tarnsubmission_userscript",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pabrodez/tarnsubmission_userscript"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode=production --config webpack.config.js"
