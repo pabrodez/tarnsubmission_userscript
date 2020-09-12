@@ -6,7 +6,7 @@ import {
     clickNoToRemainingInterventions,
     addListenerToUsualInterventions,
     expandObservations
-} from "./utils.js";
+} from "Utils";
 
 function preHospitalSection() {
     // store method of transport, so we know if it's self presentation or not to calculate if TXA on time

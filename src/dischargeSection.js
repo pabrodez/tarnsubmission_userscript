@@ -1,8 +1,8 @@
 import {
     ifRadiosInRowEmptyClickRadio, setSelectOptionTriggerChange
-} from "./utils.js";
+} from "Utils";
 
-import { getIncorrectCfsAlert } from "./alertComponents.js";
+import { getIncorrectCfsAlert } from "AlertComponents";
 
 function dischargeSection() {
     // append usual source of injuries

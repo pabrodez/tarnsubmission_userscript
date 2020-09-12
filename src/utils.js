@@ -1,4 +1,4 @@
-import { getLateTxaAlert } from "./alertComponents.js";
+import { getLateTxaAlert } from "AlertComponents";
 
 function populateObservationsDates(day, month, year) {
     document.querySelectorAll('[id^="DASSESS_DATE"]').forEach((d) => { d.value = d.value || day });
@@ -136,5 +136,6 @@ export {
     populateObservationsDates, parseObsFromEdText,
     populateObservationsTimes, addListenerToUsualInterventions,
     expandObservations, clickNoToRemainingInterventions,
-    ifTextIsEmptyClickPopulate, setSelectOptionTriggerChange
+    ifTextIsEmptyClickPopulate, setSelectOptionTriggerChange,
+    ifRadiosInRowEmptyClickRadio
 }

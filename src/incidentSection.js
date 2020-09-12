@@ -2,7 +2,7 @@ import {
     ifTextIsEmptyClickPopulate,
     ifRadiosInRowEmptyClickRadio,
     setSelectOptionTriggerChange
-} from "./utils.js";
+} from "Utils";
 
 function incidentSection() {
     // incident date

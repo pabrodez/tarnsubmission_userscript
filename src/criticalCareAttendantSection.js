@@ -1,4 +1,4 @@
-import { ifTextIsEmptyClickPopulate, setSelectOptionTriggerChange} from "./utils.js";
+import { ifTextIsEmptyClickPopulate, setSelectOptionTriggerChange} from "Utils";
 function criticalCareAttendantSection() {
     // add listener to 'Yes' to attendant to critical care
     document.getElementById('RB0INTER_ATTENDANT').addEventListener('click', (e) => {

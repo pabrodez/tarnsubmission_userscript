@@ -1,7 +1,7 @@
 import {
     getAsideAutoSaveSlider,
     getDisableTimeouButton
-} from "./alertComponents.js";
+} from "AlertComponents";
 
 function addToolbar() {
     let toolBar = document.createElement('aside');

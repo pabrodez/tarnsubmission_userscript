@@ -1,5 +1,5 @@
-import { setSelectOptionTriggerChange } from "./utils.js";
-import { getLateCtAlert } from "./alertComponents.js";
+import { setSelectOptionTriggerChange } from "Utils";
+import { getLateCtAlert } from "AlertComponents";
 
 function imagingSection() {
 

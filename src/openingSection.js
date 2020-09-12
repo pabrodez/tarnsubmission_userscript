@@ -1,9 +1,9 @@
 import {
     ifRadiosInRowEmptyClickRadio,
     setSelectOptionTriggerChange
-} from './utils.js';
+} from 'Utils';
 
-import { getLateTransferAlert, getRehabNonBptAlert } from './alertComponents.js';
+import { getLateTransferAlert, getRehabNonBptAlert } from 'AlertComponents';
 
 function openingSection() {
         // late transfer alert if transfer in        

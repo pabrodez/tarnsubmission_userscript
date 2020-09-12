@@ -1,6 +1,6 @@
 import {
     setSelectOptionTriggerChange
-} from "./utils.js";
+} from "Utils";
 
 function edAttendantsSection() {
     // populate usual doctor

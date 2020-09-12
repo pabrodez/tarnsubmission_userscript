@@ -4,9 +4,9 @@ import {
     addListenerToUsualInterventions,
     ifTextIsEmptyClickPopulate,
     expandObservations,    
-} from "./utils.js";
+} from "Utils";
 
-import { getEdObsTextHelper, getLateGcsAlert, getLateIntubationAlert } from './alertComponents.js';
+import { getEdObsTextHelper, getLateGcsAlert, getLateIntubationAlert } from 'AlertComponents';
 
 function edSection() {
     // add ED obs helper

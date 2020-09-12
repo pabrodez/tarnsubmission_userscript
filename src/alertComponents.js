@@ -5,7 +5,7 @@
 import {
     isRehabPrescriptionBPT, isTransferOnTime, isTxaOnTime,
     isCfsCorrect, isGcsOnTime,
-} from "./alertChecker.js";
+} from 'AlertChecker';
 
 function getLateTransferAlert() {
     let wrapper = document.createElement('section');

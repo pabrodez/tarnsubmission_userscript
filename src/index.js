@@ -1,4 +1,4 @@
-import { addToolbar } from './toolbar.js';
+import { addToolbar } from 'Toolbar';
 import { openingSection } from "./openingSection.js";
 import { incidentSection } from "./incidentSection.js";
 import { preHospitalSection } from "./preHospitalSection.js";

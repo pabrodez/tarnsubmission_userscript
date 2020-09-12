@@ -1,5 +1,5 @@
-import { setSelectOptionTriggerChange } from "./utils.js";
-import { getLateGcsAlert } from "./alertComponents.js";
+import { setSelectOptionTriggerChange } from "Utils";
+import { getLateGcsAlert } from "AlertComponents";
 
 function criticalCareSection() {
     // add listener to 'Yes' to critical care stay
