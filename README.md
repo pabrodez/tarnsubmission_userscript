@@ -13,11 +13,11 @@ Alternatively copy and paste the content in a newly created userscript in Tamper
 3. Log into [TARN website](https://www.tarn.ac.uk/) as you normally would
 
 #### Wish list:
- [] Pre-hosp: invalid date patient seen paramedic
- [] Ed: copy paste obs to include airway and breathing status, crt, and pupil reactivity
- [] Create operations section
- [] Ward: late gcs alert for extended dataset in ward
- [] at discharge: if CFS entered, to show if okay or not after reloading
+- [] Pre-hosp: invalid date patient seen paramedic
+- [] Ed: copy paste obs to include airway and breathing status, crt, and pupil reactivity
+- [] Create operations section
+- [] Ward: late gcs alert for extended dataset in ward
+- [] at discharge: if CFS entered, to show if okay or not after reloading
 
 #### Used:
 * ES6+ syntax
