@@ -9,9 +9,6 @@ function criticalCareSection() {
         // readmit
         document.getElementById('RB1CCARE_READMIT').click();
         // No to all observations and interventions
-        let obsButtons = document.querySelectorAll('[id^="R00ASSESS_OBS"][style=""]');
-        let intervenButtons = document.querySelectorAll('[id^="R00INTER"][style=""]');
-        let investigations = document.getElementById('R00ASSESS_BSAMP');
         [...document.querySelectorAll('input[id^="RB1ASSESS_OBS"]'), document.getElementById('RB1ASSESS_BSAMP'), ...document.querySelectorAll('input[id^="RB1INTER"]')]
             .forEach((button) => { button.click() });
     });

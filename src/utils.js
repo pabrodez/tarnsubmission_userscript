@@ -82,10 +82,9 @@ function clickNoToRemainingInterventions(isEd = false) {
 }
 
 function ifRadiosInRowEmptyClickRadio(questionnaireRowId, radioIdToClick) {
-    // TODO when clicking intervention a value is stored in a hidden input beginning with A00INTER
-    // instead of looping through every input of the row, just check it's empty to know there's no answer
-    let inputs = document.querySelectorAll(`#${questionnaireRowId} input[type=radio]`);
-    if (Array.from(inputs).every(button => !button.checked)) {
+    // when clicking and observation or intervention a value is stored in a hidden input beginning with A00
+    let hiddenInput = document.getElementById(`#${'A00' + questionnaireRowId.substring(3)}`);
+    if (!hiddenInput) {
         document.getElementById(radioIdToClick).click();
     }
 }
