@@ -7,6 +7,8 @@ import {
     isCfsCorrect, isGcsOnTime,
 } from 'AlertChecker';
 
+import { parseObsFromEdText } from "Utils";
+
 function getLateTransferAlert() {
     let wrapper = document.createElement('section');
     wrapper.innerHTML = `<p id="transferTimeAlert">${isTransferOnTime() ? "Transfer on time" : "Transfer NOT on time"}</p>`;
@@ -68,6 +70,19 @@ function getEdObsTextHelper() {
     helperButton.value = 'Paste observations';
     helperButton.addEventListener('click', (e) => {
         let obs = parseObsFromEdText(document.getElementById('obsText').value);
+        switch (obs.airway) {
+            case 'clear':
+                document.getElementById('A00ASSESS_AIRWAYS_VAL').value = 1;              
+                
+                break;
+            case 'intubated':
+                // TODO click no to GCS and auto-select mechanical ventilation in breathing status
+
+
+        
+            default:
+                break;
+        }
         document.getElementById('A00ASSESS_OXIMETER_SAT').value = obs.sat;
         document.getElementById('A00ASSESS_RESP_RATE_VAL').value = obs.resp;
         document.getElementById('A00ASSESS_PULSE_VAL').value = obs.pulse;
