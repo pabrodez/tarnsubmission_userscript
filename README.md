@@ -12,12 +12,12 @@ This userscript increases productivity by adding functionality that I wish the T
 Alternatively copy and paste the content in a newly created userscript in Tampermonkey.
 3. Log into [TARN website](https://www.tarn.ac.uk/) as you normally would
 
-#### Wish list:
-- [] Pre-hosp: invalid date patient seen paramedic
+#### 💡 Wish list:
 - [] Ed: copy paste obs to include airway and breathing status, crt, and pupil reactivity
 - [] Create operations section
 - [] Ward: late gcs alert for extended dataset in ward
-- [] at discharge: if CFS entered, to show if okay or not after reloading
+- ✅ in obs: when select intubation to auto-populate breathing support to mechanical ventilation
+- ✅ when airway status is intubated to autopopulate breathing status to mechanical ventilation and GCS to No
 
 #### Used:
 * ES6+ syntax

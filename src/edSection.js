@@ -1,6 +1,7 @@
 import {
     ifRadiosInRowEmptyClickRadio,
     clickNoToRemainingInterventions,
+    addListenerToUsualObservations,
     addListenerToUsualInterventions,
     ifTextIsEmptyClickPopulate,
     expandObservations,    
@@ -45,6 +46,8 @@ function edSection() {
     noToIntersButton.value = 'No to remaining';
     noToIntersButton.addEventListener('click', (e) => { clickNoToRemainingInterventions(true) });
     document.getElementById('GROUP4').appendChild(noToIntersButton);
+
+    addListenerToUsualObservations();
     addListenerToUsualInterventions();
 }
 

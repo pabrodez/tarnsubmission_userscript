@@ -4,8 +4,9 @@ import {
     populateObservationsDates,
     populateObservationsTimes,
     clickNoToRemainingInterventions,
+    addListenerToUsualObservations,
     addListenerToUsualInterventions,
-    expandObservations
+    expandObservations,    
 } from "Utils";
 
 function preHospitalSection() {
@@ -26,6 +27,8 @@ function preHospitalSection() {
         document.getElementById('YATT_ATT_DATE').value = document.getElementById('YINCIDENT_ARV_DATE').value;
         document.getElementById('HATT_ATT_TIME').value = document.getElementById('HINCIDENT_ARV_TIME').value;
         document.getElementById('NATT_ATT_TIME').value = document.getElementById('NINCIDENT_ARV_TIME').value;
+        // dispatch blur event to simulate user action
+        document.getElementById('NATT_ATT_TIME').dispatchEvent(new Event('blur'));
         setSelectOptionTriggerChange('A00ATT_TYPE', 4);
         setSelectOptionTriggerChange('A00ATT_AMB_SERVICE', 1158);
     });
@@ -51,7 +54,8 @@ function preHospitalSection() {
     noToIntersButton.value = 'No to remaining';
     noToIntersButton.addEventListener('click', (e) => { clickNoToRemainingInterventions() });
     document.getElementById('GROUP6').appendChild(noToIntersButton);
-    // listeners to usual interventions
+    // listeners to usual observations and interventions
+    addListenerToUsualObservations();
     addListenerToUsualInterventions();
 }
 

@@ -24,11 +24,30 @@ function addListenerToUsualInterventions() {
     document.getElementById('RB0INTER_TRANEXAMIC').addEventListener('click', (e) => {
         document.getElementById('A00INTER_TRANEX_VOL').value = 1000;
         // add late TXA alert
-        document.getElementById('toolbar').appendChild(getLateTxaAlert());
+        if (!document.getElementById('lateTxaAlert')) {
+            document.getElementById('toolbar').appendChild(getLateTxaAlert());
+        }        
     });
     // Spinal immobilisation
     document.getElementById('RB0INTER_SPROT').addEventListener('click', (e) => {
         document.getElementById('A00INTER_SPROT_TYPE').value = 12;
+    });
+    // if intubated breathing support to mechanical ventilation
+    document.getElementById('A00INTER_AIRWAYSUPP').addEventListener('change', (e) => {
+        if (e.target.value === '3') {
+            document.getElementById('RB0INTER_BREATHSUPP').click();
+            setSelectOptionTriggerChange('A00INTER_BSUPP_VAL', 3);
+        }
+    });
+}
+
+function addListenerToUsualObservations() {
+    // if airway status is intubated breathing is mechanical ventilation and GCS = No
+    document.getElementById('A00ASSESS_AIRWAYS_VAL').addEventListener('change', (e) => {
+        if (e.target.value === '4') {
+            setSelectOptionTriggerChange('A00ASSESS_BREATHS_VAL', 8);
+            document.getElementById('RB1ASSESS_GCS').click();            
+        }
     });
 }
 
@@ -83,8 +102,8 @@ function clickNoToRemainingInterventions(isEd = false) {
 
 function ifRadiosInRowEmptyClickRadio(questionnaireRowId, radioIdToClick) {
     // when clicking and observation or intervention a value is stored in a hidden input beginning with A00
-    let hiddenInput = document.getElementById(`#${'A00' + questionnaireRowId.substring(3)}`);
-    if (!hiddenInput) {
+    let input = document.getElementById(`${'A00' + questionnaireRowId.substring(3)}`).value;
+    if (!input) {
         document.getElementById(radioIdToClick).click();
     }
 }
@@ -136,5 +155,5 @@ export {
     populateObservationsTimes, addListenerToUsualInterventions,
     expandObservations, clickNoToRemainingInterventions,
     ifTextIsEmptyClickPopulate, setSelectOptionTriggerChange,
-    ifRadiosInRowEmptyClickRadio
+    ifRadiosInRowEmptyClickRadio, addListenerToUsualObservations
 }

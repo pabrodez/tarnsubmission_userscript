@@ -1,4 +1,4 @@
-import { moment } from "moment";
+import moment from "moment";
 
 // These methods are used by alertComponents to check if
 // the given relevant field is correct or incorrect in the current submission
