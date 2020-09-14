@@ -70,16 +70,17 @@ function getEdObsTextHelper() {
     helperButton.value = 'Paste observations';
     helperButton.addEventListener('click', (e) => {
         let obs = parseObsFromEdText(document.getElementById('obsText').value);
+        
         switch (obs.airway) {
             case 'clear':
-                document.getElementById('A00ASSESS_AIRWAYS_VAL').value = 1;              
+                document.getElementById('A00ASSESS_AIRWAYS_VAL').value = 1;          
                 
                 break;
             case 'intubated':
                 // TODO click no to GCS and auto-select mechanical ventilation in breathing status
-
-
-        
+                break;
+            case 'obstructed':
+                break;
             default:
                 break;
         }
