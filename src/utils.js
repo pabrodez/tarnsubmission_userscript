@@ -126,13 +126,13 @@ function setSelectOptionTriggerChange(selectId, valueToSet) {
 function parseObsFromEdText(edText) {
     // works for ED Major Trauma Assessment v2, ED MTS v2 and NEWS Chart - ADULT
     let obsRegex = {
-        'airway': /(?<=airway status:[\s])clear|obstructed|obstruction|intubated|intubation|ett|supported/i,
+        'airway': /(?<=airway status:[\s])\w+/i,
         'resp': /(?<=(respiratory rate|Respiration rate Resp\/min):[\s])\d{1,2}/i,
         'sat': /(?<=o2 saturation[\s%]*:[\s]?)\d{1,3}/i,
         'pulse': /(?<=(pulse|heart) rate(\sbpm)?:[\s])\d{1,3}(?=\sbpm)/i,
         'bpsys': /(?<=bp systolic(\smmhg)?:[\s])\d{1,3}(?=\s?mmhg)/i,
         'bpdias': /(?<=bp diastolic(\smmhg)?:[\s])\d{1,3}(?=\s?mmhg)/i,
-        'cr': /(?<=capillary refill:[\s]?)normal|abnormal/i,
+        'cr': /(?<=capillary refill:[\s]?)\w+/i,
         'gcse': /(?<=(gcs - e|eyes open):[\s]?)\d/i,
         'gcsv': /(?<=(gcs - v|best verbal response):[\s]?)\d/i,
         'gcsm': /(?<=(gcs - m|best motor response):[\s]?)\d/i,
@@ -143,17 +143,28 @@ function parseObsFromEdText(edText) {
         'rightpupreact': /(?<=right pupil (response|reaction):[\s])\w+/i,
     }
     for (const [obs, regx] of Object.entries(obsRegex)) {
-        let matchStr = edText.match(regx);
-        obsRegex[obs] = matchStr ? matchStr[0] : "";
+        obsRegex[obs] = edText.match(regx)?.[0] ?? "";
     }
 
     return obsRegex;
 }
+
+// thanks to https://codeburst.io/alternative-to-javascripts-switch-statement-with-a-functional-twist-3f572787ba1c
+const case_when = x => ({
+    is: (pred, fn) => (pred(x) ? matched(fn(x)) : case_when(x)),
+    otherwise: fn => fn(x),
+})
+
+const matched = x => ({
+    is: () => matched(x),
+    otherwise: () => x,
+})
 
 export {
     populateObservationsDates, parseObsFromEdText,
     populateObservationsTimes, addListenerToUsualInterventions,
     expandObservations, clickNoToRemainingInterventions,
     ifTextIsEmptyClickPopulate, setSelectOptionTriggerChange,
-    ifRadiosInRowEmptyClickRadio, addListenerToUsualObservations
+    ifRadiosInRowEmptyClickRadio, addListenerToUsualObservations,
+    case_when, matched
 }

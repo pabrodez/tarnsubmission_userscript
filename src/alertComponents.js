@@ -7,7 +7,12 @@ import {
     isCfsCorrect, isGcsOnTime, isIntubationOnTime, isCtOnTime
 } from 'AlertChecker';
 
-import { parseObsFromEdText, setSelectOptionTriggerChange } from 'Utils';
+import {
+    parseObsFromEdText,
+    setSelectOptionTriggerChange,
+    case_when,
+    matched
+} from 'Utils';
 
 function getLateTransferAlert() {
     let wrapper = document.createElement('section');
@@ -70,20 +75,16 @@ function getEdObsTextHelper() {
     helperButton.value = 'Paste observations';
     helperButton.addEventListener('click', (e) => {
         let obs = parseObsFromEdText(document.getElementById('obsText').value);
+
+        setSelectOptionTriggerChange('A00ASSESS_AIRWAYS_VAL',
+            case_when(obs.airway)
+                .is(x => x === 'clear',                       () => 1)
+                .is(x => /intubated|intubation|ett/i.test(x), () => 4)
+                .is(x => /vomiting|obstructed/i.test(x),      () => 3)
+                .is(x => /opa|npa/i.test(x),                  () => 2)
+                .otherwise(                                   () => '')
+        );
         
-        // switch (obs.airway) {
-        //     case 'clear':
-        //         document.getElementById('A00ASSESS_AIRWAYS_VAL').value = 1;          
-                
-        //         break;
-        //     case 'intubated':
-        //         // TODO click no to GCS and auto-select mechanical ventilation in breathing status
-        //         break;
-        //     case 'obstructed':
-        //         break;
-        //     default:
-        //         break;
-        // }
         document.getElementById('A00ASSESS_OXIMETER_SAT').value = obs.sat;
         document.getElementById('A00ASSESS_RESP_RATE_VAL').value = obs.resp;
         document.getElementById('A00ASSESS_PULSE_VAL').value = obs.pulse;
@@ -183,7 +184,7 @@ function getLateCtAlert() {
     let wrapper = document.createElement('section');
     wrapper.innerHTML = '<p id="lateCtAlert"></p>';
     document.querySelectorAll('#DASSESS_DATE_CT, #MASSESS_DATE_CT, #YASSESS_DATE_CT, #HASSESS_TIME_CT, #NASSESS_TIME_CT').forEach((input) => {
-        input.addEventListener('change', (e) => {document.getElementById('lateCtAlert').textContent = isCtOnTime() ? 'CT is ON TIME' : 'CT is LATE';})
+        input.addEventListener('change', (e) => { document.getElementById('lateCtAlert').textContent = isCtOnTime() ? 'CT is ON TIME' : 'CT is LATE'; })
     });
 
     return wrapper;

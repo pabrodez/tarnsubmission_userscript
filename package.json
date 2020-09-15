@@ -8,9 +8,9 @@
     "url": "https://github.com/pabrodez/tarnsubmission_userscript"
   },
   "scripts": {
-    "test":  "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode=production --config webpack.config.js",
-    "dev":   "webpack --mode=development --config webpack.config.js"
+    "dev": "webpack --mode=development --config webpack.config.js"
   },
   "author": "pabrodez",
   "license": "ISC",
