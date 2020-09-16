@@ -78,13 +78,13 @@ function getEdObsTextHelper() {
 
         setSelectOptionTriggerChange('A00ASSESS_AIRWAYS_VAL',
             case_when(obs.airway)
-                .is(x => x === 'clear',                       () => 1)
+                .is(x => x === 'clear', () => 1)
                 .is(x => /intubated|intubation|ett/i.test(x), () => 4)
-                .is(x => /vomiting|obstructed/i.test(x),      () => 3)
-                .is(x => /opa|npa/i.test(x),                  () => 2)
-                .otherwise(                                   () => '')
+                .is(x => /vomiting|obstructed|obstruction|partial obstruction/i.test(x), () => 3)
+                .is(x => /opa|npa/i.test(x), () => 2)
+                .otherwise(() => '')
         );
-        
+
         document.getElementById('A00ASSESS_OXIMETER_SAT').value = obs.sat;
         document.getElementById('A00ASSESS_RESP_RATE_VAL').value = obs.resp;
         document.getElementById('A00ASSESS_PULSE_VAL').value = obs.pulse;
@@ -97,8 +97,14 @@ function getEdObsTextHelper() {
         setSelectOptionTriggerChange('A00ASSESS_GCS_TOTAL', obs.gcstotal);
         document.getElementById('A00ASSESS_GCS_LEFT_EYE').value = obs.leftpupsize;
         document.getElementById('A00ASSESS_GCS_RIGHT_EYE').value = obs.rightpupsize;
-        if (/react|brisk|yes/i.test(obs.leftpupreact)) document.getElementById('RB1ASSESS_GCS_RCT_LEFT').click();
-        if (/react|brisk|yes/i.test(obs.rightpupreact)) document.getElementById('RB1ASSESS_GCS_RCT_RIGHT').click();
+        case_when(obs.leftpupreact)
+            .is(x => /react|reactive|brisk|yes/i.test(x),        () => document.getElementById('RB1ASSESS_GCS_RCT_LEFT').click())
+            .is(x => /sluggish/i.test(x),                        () => document.getElementById('RB2ASSESS_GCS_RCT_LEFT').click())
+            .is(x => /absent|non-?reactive|unreactive/i.test(x), () => document.getElementById('RB3ASSESS_GCS_RCT_LEFT').click())
+        case_when(obs.rightpupreact)
+            .is(x => /react|reactive|brisk|yes/i.test(x),        () => document.getElementById('RB1ASSESS_GCS_RCT_RIGHT').click())
+            .is(x => /sluggish/i.test(x),                        () => document.getElementById('RB2ASSESS_GCS_RCT_RIGHT').click())
+            .is(x => /absent|non-?reactive|unreactive/i.test(x), () => document.getElementById('RB3ASSESS_GCS_RCT_RIGHT').click())
     });
 
     wrapper.appendChild(textArea);

@@ -13,7 +13,7 @@ Alternatively copy and paste the content in a newly created userscript in Tamper
 3. Log into [TARN website](https://www.tarn.ac.uk/) as you normally would
 
 #### 💡 Wish list:
-- [] Ed: copy paste obs to include airway, crt, and pupil reactivity
+- [] Ed: copy paste obs to include airway, and pupil reactivity
 - [] in obs: if resp rate above 25 to change breathing status to respiratory distress
 - [] Create operations section
 - [] Ward: late gcs alert for extended dataset in ward
