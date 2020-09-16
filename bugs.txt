@@ -3,9 +3,9 @@
 ❓  = changed, not checked
 ✅ = checked and fixed
 
-1. ❓ paramedic date patient seen error
-2. ❓ No to remaining button overwrites already clicked interventions
-3. ❓ isCtOnTime is not defined error
-4. ❓ [same as 2.] on discharge check that it doesnt click alive if alive or dead is already clicked 
-5. ❓ txa on time alert keeps adding to toolbar if clicked many times
+1. ✅ paramedic date patient seen error
+2. ✅ No to remaining button overwrites already clicked interventions
+3. ✅ isCtOnTime is not defined error
+4. ✅ [same as 2.] on discharge check that it doesnt click alive if alive or dead is already clicked 
+5. ✅ txa on time alert keeps adding to toolbar if clicked many times
 6.    at discharge: if CFS entered, to show if okay or not after reloading

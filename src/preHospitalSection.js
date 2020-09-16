@@ -28,6 +28,7 @@ function preHospitalSection() {
         document.getElementById('HATT_ATT_TIME').value = document.getElementById('HINCIDENT_ARV_TIME').value;
         document.getElementById('NATT_ATT_TIME').value = document.getElementById('NINCIDENT_ARV_TIME').value;
         // dispatch blur event to simulate user action
+        document.getElementById('YATT_ATT_DATE').dispatchEvent(new Event('blur'));
         document.getElementById('NATT_ATT_TIME').dispatchEvent(new Event('blur'));
         setSelectOptionTriggerChange('A00ATT_TYPE', 4);
         setSelectOptionTriggerChange('A00ATT_AMB_SERVICE', 1158);
