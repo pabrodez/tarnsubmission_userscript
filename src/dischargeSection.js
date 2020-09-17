@@ -6,7 +6,7 @@ import { getIncorrectCfsAlert } from "AlertComponents";
 
 function dischargeSection() {
     // append usual source of injuries
-    document.getElementById('A00INJURY_DESCRIPTION').value = document.getElementById('A00INJURY_DESCRIPTION').value || 'Source: imaging reports and clinical notes';
+    document.getElementById('A00INJURY_DESCRIPTION').value ||= 'Source: imaging reports and clinical notes';
     // CFS if patient age < 65 click no, else autopopulate and add late CFS alert
     if (Number(localStorage.getItem('patientAge')) < 65) {
         ifRadiosInRowEmptyClickRadio('R00OUT_PATASSESS', 'RB1OUT_PATASSESS');
@@ -15,7 +15,7 @@ function dischargeSection() {
         setSelectOptionTriggerChange('A00OUT_PATASS_GRADE', 1);
         setSelectOptionTriggerChange('A00OUT_PATASS_SPEC', 4);
         // add CFS alert
-        document.getElementById('toolbar').appendChild(getIncorrectCfsAlert());
+        document.getElementById('R00OUT_PATASSESS').appendChild(getIncorrectCfsAlert());
     }
     // if no PMH then no to anticoagulants and antiplatelets
     document.getElementById('A00OUT_PRE_DISEASE').addEventListener('change', (e) => {

@@ -24,8 +24,8 @@ function addListenerToUsualInterventions() {
     document.getElementById('RB0INTER_TRANEXAMIC').addEventListener('click', (e) => {
         document.getElementById('A00INTER_TRANEX_VOL').value = 1000;
         // add late TXA alert
-        if (!document.getElementById('lateTxaAlert')) {
-            document.getElementById('toolbar').appendChild(getLateTxaAlert());
+        if (!document.getElementById('txaBox')) {
+            document.getElementById('R00INTER_TRANEXAMIC').appendChild(getLateTxaAlert());
         }        
     });
     // Spinal immobilisation

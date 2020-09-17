@@ -10,7 +10,7 @@
 // @match https://www.tarn.ac.uk/SubmissionDetail.aspx?subid=*&ssid=*&qsid=*&psid=Null&pt=sect&ro=N&mult=N&QAsub=
 // @match https://www.tarn.ac.uk/SubmissionDetail.aspx?subid=*&ssid=*&qsid=*&psid=Null&pt=sect&ro=N&mult=Y&QAsub=
 // @match https://www.tarn.ac.uk/SubmissionDetail.aspx?subid=*&ssid=*&qsid=*&psid=0&pt=sect&ro=N&mult=N&QAsub=
-// @grant none
+// @grant GM_addStyle
 // @require https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js
 // @license MIT
 // ==/UserScript==

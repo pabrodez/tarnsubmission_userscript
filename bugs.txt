@@ -9,4 +9,4 @@
 4. ✅ [same as 2.] on discharge check that it doesnt click alive if alive or dead is already clicked 
 5. ✅ txa on time alert keeps adding to toolbar if clicked many times
 6.    at discharge: if CFS entered, to show if okay or not after reloading
-7. Regex defined in alertComponents/getEdObsTextHelper() not take nonreactive as reactive
+7. ✅ Regex defined in alertComponents/getEdObsTextHelper() not take nonreactive as reactive

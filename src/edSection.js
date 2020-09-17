@@ -13,9 +13,15 @@ function edSection() {
     // add ED obs helper
     document.getElementById('toolbar').appendChild(getEdObsTextHelper());
     // add late GCS alert
-    document.getElementById('toolbar').appendChild(getLateGcsAlert());
+    document.getElementById('R00ASSESS_OBS_NSYS').appendChild(getLateGcsAlert());
     // add late intubation alert
-    document.getElementById('toolbar').appendChild(getLateIntubationAlert());
+    document.getElementById('A00INTER_AIRWAYSUPP').addEventListener('change', (e) => {
+        if (e.target.value === '3' && !document.getElementById('intubationBox')) {
+            document.getElementById('R00INTER_AIRWAYSUPPORT').appendChild(getLateIntubationAlert());
+        } else {
+            document.getElementById('intubationBox')?.remove();
+        }
+    });
     // ed stay
     ifRadiosInRowEmptyClickRadio('R00ED_STAY', 'RB0ED_STAY');
     // date arrival

@@ -25,15 +25,22 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
+        test: /\.js$/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env']
           }
         }
-      }
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          { loader: 'css-loader', options: { sourceMap: true } },
+          { loader: 'sass-loader', options: { sourceMap: true } },
+        ]
+      },
     ]
   },
 
@@ -51,7 +58,7 @@ module.exports = {
           'https://www.tarn.ac.uk/SubmissionDetail.aspx?subid=*&ssid=*&qsid=*&psid=Null&pt=sect&ro=N&mult=Y&QAsub=',
           'https://www.tarn.ac.uk/SubmissionDetail.aspx?subid=*&ssid=*&qsid=*&psid=0&pt=sect&ro=N&mult=N&QAsub='
         ],
-        grant: 'none',
+        grant: 'GM_addStyle',
         require: 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js',
         license: 'MIT'
       },

@@ -5,7 +5,7 @@ import {
 
 function addToolbar() {
     let toolBar = document.createElement('aside');
-    toolBar.setAttribute('style', 'position:fixed; top:50%; right:2%;');
+    toolBar.classList.add('toolbar');
     toolBar.id = "toolbar";
     toolBar.appendChild(getAsideAutoSaveSlider());
     toolBar.appendChild(getDisableTimeouButton());

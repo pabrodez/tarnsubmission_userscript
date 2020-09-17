@@ -22,12 +22,12 @@ function isRehabPrescriptionBPT() {
 
 function isTransferOnTime() {
 
-    let output = ['input[id*="IN_REQ"]:not([name="A00TRANS_IN_REQ_DATE"]):not([name="A00TRANS_IN_REQ_TIME"])',
+    let dateTimeDiff = ['input[id*="IN_REQ"]:not([name="A00TRANS_IN_REQ_DATE"]):not([name="A00TRANS_IN_REQ_TIME"])',
         'input[id*="ARV"]:not([name="A00HOSPITAL_ARV_TIME"]):not([name="A00HOSPITAL_ARV_DATE"])']
-        .map(selector => moment([...document.querySelectorAll(selector)].map(e => e.value).join(""), 'DDMMYYYYHHmm'))
-        .reduce((a, b) => b.diff(a, 'hours', true)) <= 48;
+            .map(selector => moment([...document.querySelectorAll(selector)].map(e => e.value).join(""), 'DDMMYYYYHHmm'))
+            .reduce((a, b) => b.diff(a, 'hours', true));
 
-    return output;
+    return dateTimeDiff >= 0 && dateTimeDiff <= 48;
 }
 
 function isTxaOnTime() {
@@ -42,10 +42,12 @@ function isTxaOnTime() {
         let arrScene = moment([...document.querySelectorAll('#DINCIDENT_ARV_DATE, #MINCIDENT_ARV_DATE, #YINCIDENT_ARV_DATE, #HINCIDENT_ARV_TIME, #NINCIDENT_ARV_TIME')]
             .map(e => e.value)
             .join(""), 'DDMMYYYYHHmm');
-        isOnTime = txaDateTime.diff(arrScene, 'minutes', true) <= 60;
+        let dateTimeDiff = txaDateTime.diff(arrScene, 'minutes', true);
+        isOnTime = dateTimeDiff >= 0 && dateTimeDiff <= 60;
     } else if (['13', '3', '6', '5'].includes(arrMethod)) {
         let arrEd = moment(localStorage.getItem('dateTimeArr'), 'DDMMYYYYHHmm');
-        isOnTime = txaDateTime.diff(arrEd, 'minutes', true) <= 60;
+        let dateTimeDiff = txaDateTime.diff(arrEd, 'minutes', true);
+        isOnTime = dateTimeDiff >= 0 && dateTimeDiff <= 60;
     }
 
     return isOnTime;
@@ -60,18 +62,28 @@ function isCfsCorrect() {
     let isConsultant = document.getElementById('A00OUT_PATASS_GRADE').value === '1';
     let isGeriatrician = document.getElementById('A00OUT_PATASS_SPEC').value === '4';
 
-    return isConsultant && isGeriatrician && cfsDateTime.diff(arrDateTime, 'hours', true) <= 72;
+    let dateTimeDiff = cfsDateTime.diff(arrDateTime, 'hours', true);
+
+    return isConsultant && isGeriatrician && (dateTimeDiff >= 0 && dateTimeDiff <= 72);
 }
 
 function isGcsOnTime() {
-    let arrDateTime = moment(localStorage.getItem('dateTimeArr'), 'DDMMYYYYHHmm');
-    let gcsDateTime = moment(
-        [...document.querySelectorAll('#DASSESS_DATE_NSYS, #MASSESS_DATE_NSYS, #YASSESS_DATE_NSYS, #HASSESS_TIME_NSYS, #NASSESS_TIME_NSYS')]
-            .map(e => e.value).join(""),
-        'DDMMYYYYHHmm');
-    let gcsValue = document.getElementById('A00ASSESS_GCS_TOTAL');
+    if (!document.getElementById('RB0ASSESS_OBS_NSYS').checked) {
+        return false;
+    } else if (!document.getElementById('RB0ASSESS_GCS').checked) {
+        return false;
+    } else {
+        let arrDateTime = moment(localStorage.getItem('dateTimeArr'), 'DDMMYYYYHHmm');
+        let gcsDateTime = moment(
+            [...document.querySelectorAll('#DASSESS_DATE_NSYS, #MASSESS_DATE_NSYS, #YASSESS_DATE_NSYS, #HASSESS_TIME_NSYS, #NASSESS_TIME_NSYS')]
+                .map(e => e.value).join(""),
+            'DDMMYYYYHHmm');
+        let gcsValue = document.getElementById('A00ASSESS_GCS_TOTAL').value;
 
-    return gcsValue && gcsDateTime.diff(arrDateTime, 'minutes', true) <= 30;
+        let dateTimeDiff = gcsDateTime.diff(arrDateTime, 'minutes', true);
+
+        return gcsValue && (dateTimeDiff >= 0 && dateTimeDiff <= 30);
+    }
 }
 
 function isIntubationOnTime() {
@@ -94,8 +106,9 @@ function isCtOnTime() {
         [...document.querySelectorAll('#DASSESS_DATE_CT, #MASSESS_DATE_CT, #YASSESS_DATE_CT, #HASSESS_TIME_CT, #NASSESS_TIME_CT')]
             .map(e => e.value).join(""),
         "DDMMYYYYHHmm");
+    let dateTimeDiff = ctDateTime.diff(arrDateTime, 'minutes', true);
 
-    return ctDateTime.diff(arrDateTime, 'minutes', true) <= 60;
+    return dateTimeDiff >= 0 && dateTimeDiff <= 60;
 }
 
 export {
