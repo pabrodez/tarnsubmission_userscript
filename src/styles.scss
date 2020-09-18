@@ -1,0 +1,146 @@
+$error: #f2777a;
+$correct: #92d192;
+$white: white;
+$dark-grey: #383838;
+$light-grey: #ced4da;
+
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+.QuestionnaireRow {
+    display: flex !important;
+    flex-flow: row;
+}
+
+.toolbar {
+    position: fixed;
+    top:50%;
+    right:2%;
+    display: grid;
+    row-gap: 1rem;
+
+    p {
+        border-radius: 0.35rem;
+        font-size: 1.1rem;
+        padding: 0.5rem;
+        background-color: $dark-grey;
+        color: $light-grey;
+    }
+
+    input[type="range"] {
+        cursor: pointer;
+        width: 100%;
+        margin: 3.3px 0;
+        background-color: transparent;
+        -webkit-appearance: none;
+          
+          &:focus {
+            outline: none;
+          }
+          &::-webkit-slider-runnable-track {
+            background: #3071a9;
+            border: 0.2px solid #010101;
+            border-radius: 1.3px;
+            width: 100%;
+            height: 8.4px;
+            cursor: pointer;
+          }
+          &::-webkit-slider-thumb {
+            margin-top: -3.5px;
+            width: 17px;
+            height: 15px;
+            background: #ffffff;
+            border: 1px solid #000000;
+            border-radius: 6px;
+            cursor: pointer;
+            -webkit-appearance: none;
+          }
+          &:focus::-webkit-slider-runnable-track {
+            background: #367ebd;
+          }
+          &::-moz-range-track {
+            background: #3071a9;
+            border: 0.2px solid #010101;
+            border-radius: 1.3px;
+            width: 100%;
+            height: 8.4px;
+            cursor: pointer;
+          }
+          &::-moz-range-thumb {
+            width: 17px;
+            height: 15px;
+            background: #ffffff;
+            border: 1px solid #000000;
+            border-radius: 6px;
+            cursor: pointer;
+          }
+          &::-ms-track {
+            background: transparent;
+            border-color: transparent;
+            border-width: 4.3px 0;
+            color: transparent;
+            width: 100%;
+            height: 8.4px;
+            cursor: pointer;
+          }
+          &::-ms-fill-lower {
+            background: #2a6495;
+            border: 0.2px solid #010101;
+            border-radius: 2.6px;
+          }
+          &::-ms-fill-upper {
+            background: #3071a9;
+            border: 0.2px solid #010101;
+            border-radius: 2.6px;
+          }
+          &::-ms-thumb {
+            width: 17px;
+            height: 15px;
+            background: #ffffff;
+            border: 1px solid #000000;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 0px;
+            /*Needed to keep the Edge thumb centred*/
+          }
+          &:focus::-ms-fill-lower {
+            background: #3071a9;
+          }
+          &:focus::-ms-fill-upper {
+            background: #367ebd;
+          }   
+
+    }
+    
+    #disTimeout {
+        position: relative;
+        border: 0.2rem solid rgba(0,0,0, 0.4);
+        cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        &:active {
+            top: 3px;
+            box-shadow: none;
+        }
+    }
+}   
+
+    .alertBox {
+        margin-left: 0.8rem;
+        border-radius: 0.35rem;
+        background-color: $error;
+        font-weight: 400;
+        color: $white;
+        padding: 0.6rem;
+        font-size: 1.1rem;
+        line-height: 1.5;
+        transition: all 0.5s;
+        box-shadow: 0 4px 4px rgba($error, .5);
+
+        &.correct {
+            background-color: $correct;
+            box-shadow: 0 4px 4px rgba($correct, .5);            
+        }
+}

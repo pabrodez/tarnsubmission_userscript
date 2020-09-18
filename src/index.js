@@ -8,7 +8,7 @@ import { imagingSection } from "./imagingSection.js";
 import { criticalCareSection } from "./criticalCareSection.js";
 import { criticalCareAttendantSection } from "./criticalCareAttendantSection.js";
 import { dischargeSection } from "./dischargeSection";
-import styles from './styles/styles.scss';
+import styles from './styles.scss';
 
 (function () {
     'use strict';

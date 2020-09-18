@@ -177,6 +177,5 @@ export {
     getLateTransferAlert, getRehabNonBptAlert,
     getLateTxaAlert, getIncorrectCfsAlert,
     getEdObsTextHelper, getLateGcsAlert,
-    getLateIntubationAlert, getAsideAutoSaveSlider,
-    getDisableTimeouButton, getLateCtAlert
+    getLateIntubationAlert, getLateCtAlert
 };
