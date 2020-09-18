@@ -13,11 +13,11 @@ function edSection() {
     // add ED obs helper
     document.getElementById('toolbar').appendChild(getEdObsTextHelper());
     // add late GCS alert
-    document.getElementById('R00ASSESS_OBS_NSYS').appendChild(getLateGcsAlert());
+    document.querySelector('#R00ASSESS_OBS_NSYS .QuestionnaireAnswerCell').appendChild(getLateGcsAlert());
     // add late intubation alert
     document.getElementById('A00INTER_AIRWAYSUPP').addEventListener('change', (e) => {
         if (e.target.value === '3' && !document.getElementById('intubationBox')) {
-            document.getElementById('R00INTER_AIRWAYSUPPORT').appendChild(getLateIntubationAlert());
+            document.querySelector('#R00INTER_AIRWAYSUPPORT .QuestionnaireAnswerCell').appendChild(getLateIntubationAlert());
         } else {
             document.getElementById('intubationBox')?.remove();
         }
@@ -46,7 +46,7 @@ function edSection() {
         });
 
     expandObservations();
-    // add button to click no tomall remaining unanswered interventions
+    // add button to click no to all remaining unanswered interventions
     let noToIntersButton = document.createElement('input');
     noToIntersButton.type = 'button';
     noToIntersButton.value = 'No to remaining';

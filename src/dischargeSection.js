@@ -15,7 +15,7 @@ function dischargeSection() {
         setSelectOptionTriggerChange('A00OUT_PATASS_GRADE', 1);
         setSelectOptionTriggerChange('A00OUT_PATASS_SPEC', 4);
         // add CFS alert
-        document.getElementById('R00OUT_PATASSESS').appendChild(getIncorrectCfsAlert());
+        document.querySelector('#R00OUT_PATASSESS .QuestionnaireAnswerCell').appendChild(getIncorrectCfsAlert());
     }
     // if no PMH then no to anticoagulants and antiplatelets
     document.getElementById('A00OUT_PRE_DISEASE').addEventListener('change', (e) => {

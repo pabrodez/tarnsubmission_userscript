@@ -9,11 +9,13 @@ function openingSection() {
     // late transfer alert if transfer in        
     document.getElementById('A00HOSPITAL_TRANSFER').addEventListener('change', (e) => {
         if (['2', '4', '6'].includes(e.target.value)) {
-            if (!document.getElementById('transferTimeAlert')) document.getElementById('R00TRANS_IN_REQ_TIME').appendChild(getLateTransferAlert());
+            if (!document.getElementById('transferTimeAlert')) {
+                document.querySelector('#R00TRANS_IN_REQ_TIME .QuestionnaireAnswerCell').appendChild(getLateTransferAlert());
+            }
         }
     });
     // Rehab alert
-    document.getElementById('R00REHAB_PRESEVAL').appendChild(getRehabNonBptAlert());
+    document.querySelector('#R00REHAB_PRESEVAL .QuestionnaireAnswerCell').appendChild(getRehabNonBptAlert());
     // store date time arrival and DoB to be used in other alerts
     localStorage.setItem('dateTimeArr', [...document.querySelectorAll('#DHOSPITAL_ARV_DATE, #MHOSPITAL_ARV_DATE, #YHOSPITAL_ARV_DATE, #HHOSPITAL_ARV_TIME, #NHOSPITAL_ARV_TIME')]
         .map(e => e.value).join(""));

@@ -14,7 +14,9 @@ function criticalCareSection() {
     });
     // late GCS alert added when Nervous System obs clicked
     document.getElementById('RB0ASSESS_OBS_NSYS').addEventListener('click', (e) => {
-        if (!document.getElementById('gcsBox')) document.getElementById('R00ASSESS_OBS_NSYS').appendChild(getLateGcsAlert());
+        if (!document.getElementById('gcsBox')) {
+            document.querySelector('#R00ASSESS_OBS_NSYS .QuestionnaireAnswerCell').appendChild(getLateGcsAlert());
+        }
     });
 }
 

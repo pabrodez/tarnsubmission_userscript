@@ -12,7 +12,7 @@ function imagingSection() {
         setSelectOptionTriggerChange('A00ASSESS_CTS_REV_GRADE', 1);
     });
     // add late ct alert
-    document.getElementById('R00ASSESS_CTSCAN').appendChild(getLateCtAlert());
+    document.querySelector('#R00ASSESS_CTSCAN .QuestionnaireAnswerCell').appendChild(getLateCtAlert());
 }
 
 export { imagingSection };
