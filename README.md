@@ -20,6 +20,7 @@ Alternatively copy and paste the content in a newly created userscript in Tamper
 - [] Ward: late gcs alert for extended dataset in ward
 - ✅ in obs: when select intubation to auto-populate breathing support to mechanical ventilation
 - ✅ when airway status is intubated to autopopulate breathing status to mechanical ventilation and GCS to No
+- [] resize select boxes in operations section
 
 #### Used:
 * ES6+ syntax
