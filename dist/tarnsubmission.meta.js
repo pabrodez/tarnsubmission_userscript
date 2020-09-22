@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name TARN submission helper
-// @version 0.1
+// @version 0.2
 // @author pabrodez
 // @description Made for the TARN submitter's happiness
 // @homepage https://github.com/pabrodez/tarnsubmission_userscript
