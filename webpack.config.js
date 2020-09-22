@@ -48,7 +48,8 @@ module.exports = {
     new WebpackUserscript({
       headers: {
         name: 'TARN submission helper',
-        version: '0.2',
+        version: '0.1',
+        updateURL: 'https://github.com/pabrodez/tarnsubmission_userscript/raw/master/dist/tarnsubmission.user.js',
         description: 'Made for the TARN submitter\'s happiness',
         author: 'pabrodez',
         match: ['https://www.tarn.ac.uk/SubmissionDetail.aspx?subid=*&qsid=*&ro=N&mult=N&QAsub=&ssid=&pt=sect',
