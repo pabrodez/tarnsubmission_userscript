@@ -78,8 +78,6 @@ function expandObservations() {
     ifRadiosInRowEmptyClickRadio('R00ASSESS_GCS_PSIZE', 'RB0ASSESS_GCS_PSIZE');
     // pupil reactivity
     ifRadiosInRowEmptyClickRadio('R00ASSESS_GCS_PUPIL', 'RB0ASSESS_GCS_PUPIL');
-    // Obs: investigations
-    ifRadiosInRowEmptyClickRadio('R00ASSESS_BSAMP', 'RB1ASSESS_BSAMP');
 }
 
 function clickNoToRemainingInterventions(isEd = false) {

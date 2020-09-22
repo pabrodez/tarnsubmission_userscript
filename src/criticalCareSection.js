@@ -9,7 +9,7 @@ function criticalCareSection() {
         // readmit
         document.getElementById('RB1CCARE_READMIT').click();
         // No to all observations and interventions
-        [...document.querySelectorAll('input[id^="RB1ASSESS_OBS"]'), document.getElementById('RB1ASSESS_BSAMP'), ...document.querySelectorAll('input[id^="RB1INTER"]')]
+        [...document.querySelectorAll('input[id^="RB1ASSESS_OBS"]'), ...document.querySelectorAll('input[id^="RB1INTER"]')]
             .forEach((button) => { button.click() });
     });
     // late GCS alert added when Nervous System obs clicked
