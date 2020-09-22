@@ -48,7 +48,7 @@ module.exports = {
     new WebpackUserscript({
       headers: {
         name: 'TARN submission helper',
-        version: '0.1',
+        version: '0.2',
         description: 'Made for the TARN submitter\'s happiness',
         author: 'pabrodez',
         match: ['https://www.tarn.ac.uk/SubmissionDetail.aspx?subid=*&qsid=*&ro=N&mult=N&QAsub=&ssid=&pt=sect',
